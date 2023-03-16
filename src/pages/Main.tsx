@@ -13,8 +13,9 @@ export const Main = () => {
         <Empty height={`${breakPoints.lg / window.screen.width}rem`} />
         <MainModels />
         <TitleTypography />
+        <Empty height="2rem" />
         <Typography>소중한 추억을</Typography>
-        <Typography>출력해드려요</Typography>
+        <Typography>직접 출력해보아요</Typography>
       </PageLayout.Body>
       <PageLayout.MainCta>
         <Button variant="contained" sx={{ width: 300, height: 50 }}>
