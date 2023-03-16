@@ -13,11 +13,17 @@ const Layout = styled("div")({
   margin: "auto",
 });
 
+const Btn = styled("div")({
+  position: "absolute",
+  bottom: 50,
+});
+
 type Props = { children: React.ReactNode };
 
 const Main = ({ children }: Props) => {
   const [TitleComponenets] = getChildrenByName(children, "Title");
   const arrayBodyComponenets = getChildrenByName(children, "Body");
+  const arrayMainCtaComponenets = getChildrenByName(children, "MainCta");
 
   return (
     <Layout>
@@ -25,6 +31,8 @@ const Main = ({ children }: Props) => {
       {!!TitleComponenets && TitleComponenets}
       <Empty height="1rem" />
       {isEmpty(arrayBodyComponenets) || arrayBodyComponenets}
+      <Empty height="2rem" />
+      {isEmpty(arrayMainCtaComponenets) || <Btn>{arrayMainCtaComponenets}</Btn>}
     </Layout>
   );
 };
@@ -37,4 +45,8 @@ const Body = ({ children }: Props) => {
   return <>{children}</>;
 };
 
-export const PageLayout = Object.assign(Main, { Title, Body });
+const MainCta = ({ children }: Props) => {
+  return <>{children}</>;
+};
+
+export const PageLayout = Object.assign(Main, { Title, Body, MainCta });

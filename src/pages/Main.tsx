@@ -10,8 +10,12 @@ export const Main = () => {
       <PageLayout.Body>
         <MainModels />
         <TitleTypography />
-        <Button variant="contained">시작하기</Button>
       </PageLayout.Body>
+      <PageLayout.MainCta>
+        <Button variant="contained" sx={{ width: 300, height: 50 }}>
+          시작하기
+        </Button>
+      </PageLayout.MainCta>
     </PageLayout>
   );
 };
