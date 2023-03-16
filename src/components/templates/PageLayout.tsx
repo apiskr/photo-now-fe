@@ -27,9 +27,9 @@ const Main = ({ children }: Props) => {
 
   return (
     <Layout>
-      <Empty height="1rem" />
+      <Empty height="0.5rem" />
       {!!TitleComponenets && TitleComponenets}
-      <Empty height="1rem" />
+      <Empty height="0.5rem" />
       {isEmpty(arrayBodyComponenets) || arrayBodyComponenets}
       <Empty height="2rem" />
       {isEmpty(arrayMainCtaComponenets) || <Btn>{arrayMainCtaComponenets}</Btn>}
