@@ -3,11 +3,14 @@ import styled from "@emotion/styled";
 import { getChildrenByName } from "../../lib/utils/getChildrenByName";
 import { isEmpty } from "../../lib/utils/isEmpty";
 import { Empty } from "../atoms";
+import { sizes } from "../constants/sizes";
 
 const Layout = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  maxWidth: sizes.pageMaxWidth,
+  margin: "auto",
 });
 
 type Props = { children: React.ReactNode };
@@ -18,9 +21,9 @@ const Main = ({ children }: Props) => {
 
   return (
     <Layout>
-      <Empty height="2rem" />
+      <Empty height="1rem" />
       {!!TitleComponenets && TitleComponenets}
-      <Empty height="2rem" />
+      <Empty height="1rem" />
       {isEmpty(arrayBodyComponenets) || arrayBodyComponenets}
     </Layout>
   );
