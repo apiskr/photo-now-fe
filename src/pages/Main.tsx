@@ -5,8 +5,11 @@ import { TitleTypography } from "../components/molecules/TitleTypography";
 import { PageLayout } from "../components/templates/PageLayout";
 import { Empty } from "../components/atoms";
 import { breakPoints } from "../components/constants/breakPoints";
+import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
+  const navigate = useNavigate();
+
   return (
     <PageLayout>
       <PageLayout.Body>
@@ -18,7 +21,11 @@ export const Main = () => {
         <Typography>직접 출력해보아요</Typography>
       </PageLayout.Body>
       <PageLayout.MainCta>
-        <Button variant="contained" sx={{ width: 300, height: 50 }}>
+        <Button
+          variant="contained"
+          sx={{ width: 300, height: 50 }}
+          onClick={() => navigate("/upload")}
+        >
           시작하기
         </Button>
       </PageLayout.MainCta>
