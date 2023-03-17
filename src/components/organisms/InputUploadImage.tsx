@@ -20,14 +20,15 @@ export const InputUploadImage = () => {
     // [Todo] 업로드에 따라 라벨 스타일도 변경 필요
     <label
       style={{
-        outline: `4px dotted ${appColor.border}`,
-        borderRadius: 20,
+        outline: !!uploadedFile ? `1px solid black` : `4px dotted ${appColor.border}`,
+        borderRadius: !!uploadedFile ? 0 : 20,
         width: 200,
         height: 300,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        boxShadow: "0px 10px 5px rgba(0, 0, 0, 0.25)",
       }}
     >
       {!!uploadedFile ? <AfterUploadUI file={uploadedFile} /> : <PreUploadUI />}
@@ -52,8 +53,16 @@ const AfterUploadUI = ({ file }: { file: File }) => {
   const src = URL.createObjectURL(file);
   return (
     // [Todo] 이미지 필터, 테마 적용 후 보여주어야 함
-    <div style={{ width: 180 }}>
-      <img src={src} alt={file.name} style={{ width: "100%" }} />
-    </div>
+    <>
+      <div style={{ width: 180 }}>
+        <img src={src} alt={file.name} style={{ width: "100%" }} />
+      </div>
+      <Empty height="2rem" />
+      <div style={{ width: "80%", display: "flex", justifyContent: "end" }}>
+        {/* [Todo] 파일 이름 ellipse 하기 */}
+        {/* <Typography>{file.name}</Typography> */}
+        <Typography style={{ fontWeight: 800 }}>Hello</Typography>
+      </div>
+    </>
   );
 };
