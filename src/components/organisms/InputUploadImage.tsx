@@ -28,7 +28,7 @@ export const InputUploadImage = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: !!uploadedFile ? "" : "0px 10px 5px rgba(0, 0, 0, 0.25)",
+        boxShadow: !!uploadedFile ? "0px 10px 5px rgba(0, 0, 0, 0.25)" : "",
       }}
     >
       {!!uploadedFile ? <AfterUploadUI file={uploadedFile} /> : <PreUploadUI />}
