@@ -17,6 +17,7 @@ export const InputUploadImage = () => {
   };
 
   return (
+    // [Todo] 업로드에 따라 라벨 스타일도 변경 필요
     <label
       style={{
         outline: `4px dotted ${appColor.border}`,
@@ -50,8 +51,9 @@ const PreUploadUI = () => {
 const AfterUploadUI = ({ file }: { file: File }) => {
   const src = URL.createObjectURL(file);
   return (
-    <>
-      <img src={src} alt={file.name} />
-    </>
+    // [Todo] 이미지 필터, 테마 적용 후 보여주어야 함
+    <div style={{ width: 180 }}>
+      <img src={src} alt={file.name} style={{ width: "100%" }} />
+    </div>
   );
 };
