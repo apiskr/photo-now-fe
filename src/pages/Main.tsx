@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { MainModels } from "../components/molecules/MainModels";
 import { PageLayout } from "../components/templates/PageLayout";
 import { Empty, TitleTypography } from "../components/atoms";
 import { breakPoints } from "../components/constants/breakPoints";
-import { useNavigate } from "react-router-dom";
+import { MainCtaBtn } from "../components/molecules/MainCtaBtn";
 
 export const Main = () => {
   const navigate = useNavigate();
@@ -20,13 +21,7 @@ export const Main = () => {
         <Typography>직접 출력해보아요</Typography>
       </PageLayout.Body>
       <PageLayout.MainCta>
-        <Button
-          variant="contained"
-          sx={{ width: 300, height: 50 }}
-          onClick={() => navigate("/upload")}
-        >
-          시작하기
-        </Button>
+        <MainCtaBtn onClick={() => navigate("/upload")}>시작하기</MainCtaBtn>
       </PageLayout.MainCta>
     </PageLayout>
   );
