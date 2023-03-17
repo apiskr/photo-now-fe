@@ -27,9 +27,15 @@ const Main = ({ children }: Props) => {
 
   return (
     <Layout>
-      <Empty height="0.5rem" />
-      {!!TitleComponenets && TitleComponenets}
-      <Empty height="0.5rem" />
+      {!!TitleComponenets ? (
+        <>
+          <Empty height="1rem" />
+          {TitleComponenets}
+          <Empty height="1.5rem" />
+        </>
+      ) : (
+        <Empty height="1rem" />
+      )}
       {isEmpty(arrayBodyComponenets) || arrayBodyComponenets}
       <Empty height="2rem" />
       {isEmpty(arrayMainCtaComponenets) || <Btn>{arrayMainCtaComponenets}</Btn>}
