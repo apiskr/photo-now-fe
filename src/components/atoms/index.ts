@@ -1,2 +1,2 @@
 export { Empty } from "./Empty";
-export * from "./SVGs";
+export * from "./images";

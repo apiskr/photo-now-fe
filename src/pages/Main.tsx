@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { MainModels } from "../components/molecules/MainModels";
+import { MainModels } from "../components/atoms";
 import { PageLayout } from "../components/templates/PageLayout";
 import { Empty, TitleTypography } from "../components/atoms";
 import { breakPoints } from "../components/constants/breakPoints";
