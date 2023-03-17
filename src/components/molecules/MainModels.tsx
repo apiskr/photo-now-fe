@@ -1,5 +1,4 @@
 import mainModels from "../../assets/MainModels.png";
-import { breakPoints } from "../constants/breakPoints";
 import { sizes } from "../constants/sizes";
 
 export const MainModels = () => {

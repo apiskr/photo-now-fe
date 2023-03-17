@@ -1,7 +1,15 @@
 import React from "react";
+import { PageLayout } from "../components/templates/PageLayout";
+import { TitleLogo } from "../components/molecules/TitleLogo";
 
 export const Upload = () => {
-  return <>개발중</>;
+  return (
+    <PageLayout>
+      <PageLayout.Title>
+        <TitleLogo />
+      </PageLayout.Title>
+    </PageLayout>
+  );
 };
 
 // [Todo] ErrorBoundary 사용해보기

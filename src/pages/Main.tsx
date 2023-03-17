@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
 import { MainModels } from "../components/molecules/MainModels";
-import { TitleTypography } from "../components/molecules/TitleTypography";
 import { PageLayout } from "../components/templates/PageLayout";
-import { Empty } from "../components/atoms";
+import { Empty, TitleTypography } from "../components/atoms";
 import { breakPoints } from "../components/constants/breakPoints";
 import { useNavigate } from "react-router-dom";
 
