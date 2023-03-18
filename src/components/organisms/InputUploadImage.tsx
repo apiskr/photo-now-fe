@@ -11,7 +11,6 @@ export const InputUploadImage = () => {
   const setValidFile = (fileList: FileList | null): void => {
     if (!fileList || fileList?.length === 0) return;
     if (/image*/.test(fileList[0].type)) setUploadedFile(fileList[0]);
-    else throw new Error();
   };
 
   return (
