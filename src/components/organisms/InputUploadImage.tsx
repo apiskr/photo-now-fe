@@ -6,18 +6,15 @@ import { sizes } from "../constants/sizes";
 
 export const InputUploadImage = () => {
   // [Todo] 잘못된 이미지가 올라온 경우, 이미지 업로드에 실패한 경우
-  // 업로드 중이라면 로딩중
-  // [Error] CSS 작업 다시
-  // 갤러리 접근 허용을 물어봐야 하나?
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
 
-  const setValidFile = (fileList: FileList | null) => {
+  const setValidFile = (fileList: FileList | null): void => {
     if (!fileList || fileList?.length === 0) return;
-
-    setUploadedFile(fileList[0]);
+    if (/image*/.test(fileList[0].type)) setUploadedFile(fileList[0]);
+    else throw new Error();
   };
+
   return (
-    // [Todo] 업로드에 따라 라벨 스타일도 변경 필요
     <label
       style={{
         outline: !!uploadedFile ? `1px solid black` : `4px dotted ${appColor.border}`,
@@ -52,7 +49,7 @@ const PreUploadUI = () => {
 const AfterUploadUI = ({ file }: { file: File }) => {
   const src = URL.createObjectURL(file);
   return (
-    // [Todo] 이미지 필터, 테마 적용 후 보여주어야 함
+    // [Todo] 이미지 필터, 테마 적용 후 보여주어야 함 -> 스노우 방식
     <>
       <div
         style={{
@@ -64,8 +61,6 @@ const AfterUploadUI = ({ file }: { file: File }) => {
       </div>
       <Empty height="2rem" />
       <div style={{ width: "80%", display: "flex", justifyContent: "end" }}>
-        {/* [Todo] 파일 이름 ellipse 하기 */}
-        {/* <Typography>{file.name}</Typography> */}
         <Typography style={{ fontWeight: 800 }}>Hello</Typography>
       </div>
     </>
