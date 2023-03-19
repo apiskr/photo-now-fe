@@ -1,4 +1,3 @@
-// [Todo] 명세에 따라 수정 필요
 const originColor = {
   grey1: "#F2F2F2",
   grey2: "#c8c8c8",
@@ -10,11 +9,13 @@ const originColor = {
   turquoise: "#22A39F",
   blue: "#1932B9",
   lightBlue: "#7584D5",
+  greyBlue: "#4C5A67",
 };
 
 export const appColor = {
   ...originColor,
   backGround: originColor.grey1,
+  border: originColor.grey2,
   text: originColor.grey3,
-  primary: originColor.lightBlue,
+  primary: originColor.greyBlue,
 };

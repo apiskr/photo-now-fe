@@ -6,7 +6,7 @@ export const configTypography: TypographyOptions = {
   h1: { fontSize: 36, fontWeight: 700 },
   h2: { fontSize: 26 },
   body1: {
-    fontSize: 14,
+    fontSize: 16,
     letterSpacing: "1px",
   },
   body2: { fontSize: 12, fontWeight: 500 },
