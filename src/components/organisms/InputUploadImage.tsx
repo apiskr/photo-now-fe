@@ -3,24 +3,21 @@ import { Typography } from "@mui/material";
 import { appColor } from "../constants/appColor";
 import { Empty, FolderImage } from "../atoms";
 import { sizes } from "../constants/sizes";
-import { AppAlert } from "../molecules/AppALert";
+import { useAlert } from "../../hooks/useAlert";
 
 export const InputUploadImage = () => {
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
-  const [open, setOpen] = React.useState(false);
+  const { openAlert, Alert } = useAlert();
 
   const setValidFile = (fileList: FileList | null): void => {
     if (!fileList || fileList?.length === 0) return;
     if (/image*/.test(fileList[0].type)) setUploadedFile(fileList[0]);
-    else setOpen(true);
+    else openAlert();
   };
 
   return (
     <>
-      {/* [Todo] 따로 컴포넌트 빼기 */}
-      <AppAlert isOpen={open} setIsOpen={() => setOpen(false)} severity="error">
-        dddd
-      </AppAlert>
+      <Alert>이미지 파일을 업로드해주세요</Alert>
       <label
         style={{
           outline: !!uploadedFile ? `1px solid black` : `4px dotted ${appColor.border}`,
