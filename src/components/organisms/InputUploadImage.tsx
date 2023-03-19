@@ -1,11 +1,11 @@
 import React from "react";
-import { Typography, Alert, Snackbar } from "@mui/material";
+import { Typography } from "@mui/material";
 import { appColor } from "../constants/appColor";
 import { Empty, FolderImage } from "../atoms";
 import { sizes } from "../constants/sizes";
+import { AppAlert } from "../molecules/AppALert";
 
 export const InputUploadImage = () => {
-  // [Todo] 잘못된 이미지가 올라온 경우, 이미지 업로드에 실패한 경우
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
   const [open, setOpen] = React.useState(false);
 
@@ -18,16 +18,9 @@ export const InputUploadImage = () => {
   return (
     <>
       {/* [Todo] 따로 컴포넌트 빼기 */}
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        onClose={() => setOpen(false)}
-      >
-        <Alert variant="filled" severity="error" onClose={() => setOpen(false)}>
-          이미지 파일을 업로드해주세요
-        </Alert>
-      </Snackbar>
+      <AppAlert isOpen={open} setIsOpen={() => setOpen(false)} severity="error">
+        dddd
+      </AppAlert>
       <label
         style={{
           outline: !!uploadedFile ? `1px solid black` : `4px dotted ${appColor.border}`,
