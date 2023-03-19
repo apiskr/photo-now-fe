@@ -17,6 +17,7 @@ export const InputUploadImage = () => {
 
   return (
     <>
+      {/* [Todo] 에러 인터페이스 만들기 */}
       <Alert>이미지 파일을 업로드해주세요</Alert>
       <label
         style={{
