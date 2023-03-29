@@ -3,6 +3,7 @@ const originColor = {
   grey2: "#c8c8c8",
   grey3: "#333333",
   grey4: "#222222",
+  greyTransparent: "rgb(34,34,34,0.5)",
   white: "#FFFFFF",
   black: "#000000",
   pastelYellow: "#F3EFE0",

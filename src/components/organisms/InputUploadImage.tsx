@@ -5,8 +5,12 @@ import { Empty, FolderImage } from "../atoms";
 import { sizes } from "../constants/sizes";
 import { useAlert } from "../../hooks/useAlert";
 
-export const InputUploadImage = () => {
-  const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
+type Props = {
+  uploadedFile: File | null;
+  setUploadedFile: React.Dispatch<React.SetStateAction<File | null>>;
+};
+
+export const InputUploadImage = ({ uploadedFile, setUploadedFile }: Props) => {
   const { openAlert, Alert } = useAlert();
 
   const setValidFile = (fileList: FileList | null): void => {

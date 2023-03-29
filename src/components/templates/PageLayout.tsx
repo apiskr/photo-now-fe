@@ -13,20 +13,17 @@ const Layout = styled("div")({
   margin: "auto",
 });
 
-const Btn = styled("div")({
-  position: "absolute",
-  bottom: 50,
-});
-
 type Props = { children: React.ReactNode };
 
 const Main = ({ children }: Props) => {
   const [TitleComponenets] = getChildrenByName(children, "Title");
   const arrayBodyComponenets = getChildrenByName(children, "Body");
+  const arrayAbsoluteComponenets = getChildrenByName(children, "Absolute");
   const arrayMainCtaComponenets = getChildrenByName(children, "MainCta");
 
   return (
     <Layout>
+      {isEmpty(arrayAbsoluteComponenets) || arrayAbsoluteComponenets}
       {!!TitleComponenets ? (
         <>
           <Empty height="1rem" />
@@ -38,7 +35,7 @@ const Main = ({ children }: Props) => {
       )}
       {isEmpty(arrayBodyComponenets) || arrayBodyComponenets}
       <Empty height="2rem" />
-      {isEmpty(arrayMainCtaComponenets) || <Btn>{arrayMainCtaComponenets}</Btn>}
+      {isEmpty(arrayMainCtaComponenets) || arrayMainCtaComponenets}
     </Layout>
   );
 };
@@ -47,12 +44,38 @@ const Title = ({ children }: Props) => {
   return <>{children}</>;
 };
 
+const Absolute = ({ children }: Props) => {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 2,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
 const Body = ({ children }: Props) => {
   return <>{children}</>;
 };
 
 const MainCta = ({ children }: Props) => {
-  return <>{children}</>;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 50,
+        zIndex: 1,
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
-export const PageLayout = Object.assign(Main, { Title, Body, MainCta });
+export const PageLayout = Object.assign(Main, { Title, Absolute, Body, MainCta });
